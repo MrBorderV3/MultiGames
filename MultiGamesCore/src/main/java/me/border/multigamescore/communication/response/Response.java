@@ -11,7 +11,7 @@ public abstract class Response {
      *
      * @param type The type
      */
-    public Response(ResponseType type){
+    protected Response(ResponseType type){
         this.type = type;
     }
 
@@ -21,7 +21,7 @@ public abstract class Response {
      * @param type The type
      * @param message The message
      */
-    public Response(ResponseType type, String message){
+    protected Response(ResponseType type, String message){
         this(type);
         this.message = message;
         hasMessage = true;

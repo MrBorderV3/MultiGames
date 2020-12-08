@@ -11,7 +11,7 @@ public abstract class Request {
      *
      * @param type The type
      */
-    public Request(RequestType type){
+    protected Request(RequestType type){
         this.type = type;
     }
 
@@ -21,7 +21,7 @@ public abstract class Request {
      * @param type The type
      * @param message The message
      */
-    public Request(RequestType type, String message){
+    protected Request(RequestType type, String message){
         this(type);
         this.message = message;
         hasMessage = true;

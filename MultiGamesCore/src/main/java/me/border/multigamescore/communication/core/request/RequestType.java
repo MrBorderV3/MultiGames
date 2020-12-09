@@ -1,4 +1,4 @@
-package me.border.multigamescore.communication.request;
+package me.border.multigamescore.communication.core.request;
 
 public enum RequestType {
     CLIENT_KEY,

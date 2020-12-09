@@ -1,14 +1,14 @@
-package me.border.multigamescore.communication.request.client;
+package me.border.multigamescore.communication.client.request;
 
-import me.border.multigamescore.communication.request.Request;
-import me.border.multigamescore.communication.request.RequestType;
+import me.border.multigamescore.communication.core.request.Request;
+import me.border.multigamescore.communication.core.request.RequestType;
 
 public class LoginRequest extends Request {
 
     private final String username;
     private final String password;
 
-    protected LoginRequest(String username, String password) {
+    public LoginRequest(String username, String password) {
         super(RequestType.CLIENT_LOGIN);
         this.username = username;
         this.password = password;

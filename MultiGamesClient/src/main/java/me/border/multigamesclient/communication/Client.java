@@ -1,6 +1,6 @@
 package me.border.multigamesclient.communication;
 
-import me.border.multigamescore.communication.logger.CommunicationLogger;
+import me.border.multigamescore.logger.CommunicationLogger;
 
 public class Client {
 

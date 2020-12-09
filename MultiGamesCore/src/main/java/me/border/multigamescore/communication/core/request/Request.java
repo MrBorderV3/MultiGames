@@ -1,4 +1,4 @@
-package me.border.multigamescore.communication.request;
+package me.border.multigamescore.communication.core.request;
 
 public abstract class Request {
 
@@ -11,7 +11,7 @@ public abstract class Request {
      *
      * @param type The type
      */
-    protected Request(RequestType type){
+    public Request(RequestType type){
         this.type = type;
     }
 
@@ -21,7 +21,7 @@ public abstract class Request {
      * @param type The type
      * @param message The message
      */
-    protected Request(RequestType type, String message){
+    public Request(RequestType type, String message){
         this(type);
         this.message = message;
         hasMessage = true;

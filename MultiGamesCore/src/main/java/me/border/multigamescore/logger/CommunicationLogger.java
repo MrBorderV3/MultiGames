@@ -1,7 +1,7 @@
-package me.border.multigamescore.communication.logger;
+package me.border.multigamescore.logger;
 
-import me.border.multigamescore.communication.request.Request;
-import me.border.multigamescore.communication.response.Response;
+import me.border.multigamescore.communication.core.request.Request;
+import me.border.multigamescore.communication.core.response.Response;
 import me.border.utilities.communication.base.Connection;
 
 import java.io.File;

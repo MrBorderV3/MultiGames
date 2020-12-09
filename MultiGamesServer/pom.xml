@@ -8,7 +8,6 @@
     <artifactId>MultiGamesServer</artifactId>
     <version>1.0</version>
 
-
     <build>
         <plugins>
             <plugin>
@@ -41,5 +40,26 @@
             </plugin>
         </plugins>
     </build>
+
+    <repositories>
+        <repository>
+            <id>utilities.read</id>
+            <url>https://mymavenrepo.com/repo/g7imMuJgcL33EBRf9yJJ/</url>
+        </repository>
+    </repositories>
+
+    <dependencies>
+        <dependency>
+            <groupId>me.border</groupId>
+            <artifactId>Utilities</artifactId>
+            <version>1.0</version>
+        </dependency>
+        <dependency>
+            <groupId>me.border</groupId>
+            <artifactId>MultiGamesCore</artifactId>
+            <version>1.0</version>
+        </dependency>
+    </dependencies>
+
 
 </project>

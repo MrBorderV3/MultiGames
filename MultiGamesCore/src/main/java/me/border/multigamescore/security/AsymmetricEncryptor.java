@@ -1,4 +1,4 @@
-package me.border.multigamescore.communication.security;
+package me.border.multigamescore.security;
 
 import javax.crypto.BadPaddingException;
 import javax.crypto.Cipher;
@@ -12,7 +12,7 @@ import java.util.Base64;
 public class AsymmetricEncryptor {
     private PublicKey publicKey;
     private PrivateKey privateKey;
-    private static final Charset FORMAT;
+    private static final Charset FORMAT = StandardCharsets.UTF_8;
 
     public AsymmetricEncryptor() {
         try {
@@ -36,7 +36,7 @@ public class AsymmetricEncryptor {
     public String encrypt(String str) {
         try {
             Cipher eCipher = Cipher.getInstance("RSA");
-            eCipher.init(1, this.publicKey);
+            eCipher.init(Cipher.ENCRYPT_MODE, this.publicKey);
             byte[] encryptedPassBytes = eCipher.doFinal(str.getBytes(FORMAT));
             byte[] encodedPass = Base64.getEncoder().encode(encryptedPassBytes);
             return new String(encodedPass, FORMAT);
@@ -49,7 +49,7 @@ public class AsymmetricEncryptor {
     public String decrypt(String str) {
         try {
             Cipher dCipher = Cipher.getInstance("RSA");
-            dCipher.init(2, this.privateKey);
+            dCipher.init(Cipher.DECRYPT_MODE, this.privateKey);
             byte[] decoded = Base64.getDecoder().decode(str.getBytes(FORMAT));
             byte[] decipheredTextBytes = dCipher.doFinal(decoded);
             return new String(decipheredTextBytes, FORMAT);
@@ -70,7 +70,7 @@ public class AsymmetricEncryptor {
     public static String encrypt(PublicKey publicKey, String data) {
         try {
             Cipher eCipher = Cipher.getInstance("RSA");
-            eCipher.init(1, publicKey);
+            eCipher.init(Cipher.ENCRYPT_MODE, publicKey);
             byte[] encryptedPassBytes = eCipher.doFinal(data.getBytes(FORMAT));
             byte[] encodedPass = Base64.getEncoder().encode(encryptedPassBytes);
             return new String(encodedPass, FORMAT);
@@ -83,7 +83,7 @@ public class AsymmetricEncryptor {
     public static String decrypt(PrivateKey privateKey, String data) {
         try {
             Cipher dCipher = Cipher.getInstance("RSA");
-            dCipher.init(2, privateKey);
+            dCipher.init(Cipher.DECRYPT_MODE, privateKey);
             byte[] decoded = Base64.getDecoder().decode(data.getBytes(FORMAT));
             byte[] decipheredTextBytes = dCipher.doFinal(decoded);
             return new String(decipheredTextBytes, FORMAT);
@@ -91,10 +91,6 @@ public class AsymmetricEncryptor {
             var5.printStackTrace();
             return null;
         }
-    }
-
-    static {
-        FORMAT = StandardCharsets.UTF_8;
     }
 }
 

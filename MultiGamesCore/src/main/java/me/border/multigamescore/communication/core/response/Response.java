@@ -1,4 +1,4 @@
-package me.border.multigamescore.communication.response;
+package me.border.multigamescore.communication.core.response;
 
 public abstract class Response {
 
@@ -11,7 +11,7 @@ public abstract class Response {
      *
      * @param type The type
      */
-    protected Response(ResponseType type){
+    public Response(ResponseType type){
         this.type = type;
     }
 
@@ -21,7 +21,7 @@ public abstract class Response {
      * @param type The type
      * @param message The message
      */
-    protected Response(ResponseType type, String message){
+    public Response(ResponseType type, String message){
         this(type);
         this.message = message;
         hasMessage = true;
